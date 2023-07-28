@@ -1,0 +1,5 @@
+.lesCards
+{
+    display: flex;
+    justify-content: space-around;
+}
