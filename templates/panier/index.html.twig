@@ -3,4 +3,20 @@
 {% block title %}Hello PanierController!
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+	{% for data in dataCart %}
+
+		<p>{{data.product.nom}}</p>
+		<p>quantity:{{data.quantity}}</p>
+
+		<a href="{{ path('app_home')}}" class="btn btn-success">Ajouter d'autre article aux panier</a>
+		<a href="{{ path('app_remove_panier', {'id': data.product.id}) }}" class="btn btn-warning">Enlenver un aux panier</a>
+
+		<a href="{{ path('app_delete_panier', {'id': data.product.id}) }}" class="btn btn-danger">Supprimer du panier</a>
+
+
+	{% endfor %}
+	<br><br><br>
+	<a href="{{ path('app_flush_panier') }}" class="btn btn-dark">Vider tout le panier</a>
+
+{% endblock %}
